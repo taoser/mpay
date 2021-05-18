@@ -22,8 +22,8 @@ jobs:
           echo "开始进行release构建"
           chmod +x gradlew
           ./gradlew app:assembleRelease
-    - name: Upload APK
-      uses: actions/upload-artifact@v1
+    - name: upload apk
+      uses: actions/upload-artifact@master
       with:
         name: app
-        path: ${{ github.workspace }}/app/build/outputs/apk/app-debug.apk
+        path: ${{ github.workspace }}/app/build/outputs/apk/master
