@@ -34,7 +34,7 @@ public class AlipayPmentayNotificationHandle extends PmentayNotificationHandle i
 				return ;
                         }
 
-                        if(content.contains("成功收款") | content.contains("向你付款") | title.contains("收钱语音提醒") | content.contains("语音播报")){
+                        if(title.contains("收款到账") | title.contains("语音提醒") | content.contains("播报") | content.contains("成功收款") | content.contains("向你付款")){
                                 collectioncodePush(true);
                                 return ;
                         }
@@ -54,7 +54,7 @@ public class AlipayPmentayNotificationHandle extends PmentayNotificationHandle i
                                 postmap.put("type","alipay-transfer");
                                 postmap.put("time",notitime);
                                 postmap.put("title","转账");
-                                postmap.put("money","-0.00");
+                                postmap.put("money",extractMoney(content));
                                 postmap.put("content",content);
                                 postmap.put("transferor",whoTransferred(content));
 
