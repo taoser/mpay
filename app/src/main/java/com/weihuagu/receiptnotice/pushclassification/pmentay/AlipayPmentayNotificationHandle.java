@@ -34,7 +34,7 @@ public class AlipayPmentayNotificationHandle extends PmentayNotificationHandle i
 				return ;
                         }
 
-                        if(content.contains("成功收款") | content.contains("向你付款")){
+                        if(content.contains("成功收款") | content.contains("向你付款") | title.contains("收钱语音提醒") | content.contains("语音播报")){
                                 collectioncodePush(true);
                                 return ;
                         }
@@ -77,7 +77,7 @@ public class AlipayPmentayNotificationHandle extends PmentayNotificationHandle i
 		  Map<String,String> postmap=new HashMap<String,String>();
                   postmap.put("type","alipay");
                   postmap.put("time",notitime);
-                  postmap.put("title","支付宝支付");
+                  postmap.put("title","支付宝扫描支付");
 		  if(isinfoincontent){
                   	postmap.put("money",extractMoney(content));
                   	postmap.put("content",content);
